@@ -12,6 +12,8 @@ public abstract class Shape {
 
     private String type;
     private int id;
+    private double perimeter;
+    private double area;
     private String color;
 
     Shape()
@@ -35,6 +37,14 @@ public abstract class Shape {
 
     public String getColor() {
         return color;
+    }
+
+    public double getPerimeter() {
+        return perimeter;
+    }
+
+    public double getArea() {
+        return area;
     }
 
     @Override

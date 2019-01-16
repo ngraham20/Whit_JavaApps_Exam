@@ -35,6 +35,7 @@ public class ContentView extends JPanel {
 
     private void init() throws IOException {
 
+        // set layouts and locations
         this.setLayout(new BorderLayout());
         sideBar.setLayout(new BorderLayout());
         body.setLayout(new BorderLayout());
@@ -81,6 +82,7 @@ public class ContentView extends JPanel {
 
     public void populateProperties(Shape shape)
     {
+        // populates the properties panel with the proper information
         DefaultListModel<String> lm = new DefaultListModel<>();
         lm.addElement("Type: " + shape.getType());
         lm.addElement("ID: " + shape.getId());
@@ -104,6 +106,14 @@ public class ContentView extends JPanel {
                 lm.addElement("Width: " + ((Rectangle)shape).getWidth());
                 break;
         }
+        lm.addElement("Perimeter: " + shape.getPerimeter());
+        double area = shape.getArea();
+        if(Double.isNaN(area))
+        {
+            lm.addElement("Hey Pete! A triangle can't have a side that's bigger than the sum of the other two! ;)");
+        }
+        else
+            lm.addElement("Area: " + shape.getArea());
         properties.setModel(lm);
     }
 

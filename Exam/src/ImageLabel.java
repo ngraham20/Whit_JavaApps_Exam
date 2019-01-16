@@ -26,13 +26,16 @@ public class ImageLabel extends JLabel {
 
     public void setImage(String shape)
     {
+        // grab the image
         try {
             this.image = ImageIO.read(new File(shape.toLowerCase() + ".png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        // scale the image
         Image scaledImage = image.getScaledInstance(this.getWidth(), this.getHeight(), Image.SCALE_SMOOTH);
+
+        // create an icon out of the image
         ImageIcon icon = new ImageIcon(scaledImage);
 
         this.setIcon(icon);

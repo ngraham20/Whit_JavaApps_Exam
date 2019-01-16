@@ -3,6 +3,7 @@
  * Package: PACKAGE_NAME
  */
 
+import java.lang.Math;
 /**
  * Triangle Object
  * @author Nathaniel Graham
@@ -31,5 +32,19 @@ public class Triangle extends Shape {
 
     public int getSide3() {
         return side3;
+    }
+
+    @Override
+    public double getPerimeter() {
+        return side1 + side2 + side3;
+    }
+
+    @Override
+    public double getArea() {
+        double p = getPerimeter() / 2;
+
+        // Heron's formula the area of a triangle given only the sides
+        double area = Math.sqrt(p*(p-side1) * (p-side2) * (p-side3));
+        return area;
     }
 }

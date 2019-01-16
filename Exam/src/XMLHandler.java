@@ -64,6 +64,7 @@ public class XMLHandler {
         nodeList = (NodeList) xpath.compile(expression).evaluate(xmlDocument, XPathConstants.NODESET);
     }
 
+    // returns all the shapes from the xpath
     ArrayList<Shape> getShapes()
     {
         ArrayList<Shape> shapes = new ArrayList<>();
@@ -72,9 +73,13 @@ public class XMLHandler {
             int length = nodeList.getLength();
             for (int i = 0; i < length; i++)
             {
+                // if the node is an element node
                 if (nodeList.item(i).getNodeType() == Node.ELEMENT_NODE)
                 {
+                    // cast the node as an element
                     Element element = (Element) nodeList.item(i);
+
+                    // get all the attributes, the proper attributes for the proper shapes
                     int id = Integer.parseInt(element.getAttribute("id"));
                     String color = element.getAttribute("color");
                     switch (element.getNodeName()) {

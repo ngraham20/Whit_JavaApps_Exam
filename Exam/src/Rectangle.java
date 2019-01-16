@@ -26,4 +26,14 @@ public class Rectangle extends Shape {
     public int getLength() {
         return length;
     }
+
+    @Override
+    public double getPerimeter() {
+        return 2*width + 2*length;
+    }
+
+    @Override
+    public double getArea() {
+        return width * length;
+    }
 }
